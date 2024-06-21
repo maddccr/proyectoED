@@ -22,3 +22,33 @@ df$X <- 1:1200
 
 #usando tidy
 spotidata <- df |> filter( country %in% c()) |> select(name)
+
+#traer el subset
+library(dplyr)
+library(ggplot2)
+spotify <- read.csv("subset_spotify_1.csv")
+
+uruguay <- spotify |>
+  filter(country=="UY")
+
+datos_agrupados_artista <- spotify %>%
+  group_by(artists)
+conteo_artistas <- datos_agrupados_artista %>%
+  count(artists, sort = TRUE)
+
+karol_g <- spotify |>
+  filter(artists=="KAROL G")
+
+ggplot(data= karol_g) + geom_bar(aes(x=country))
+
+#respuesta numerica y explicativa categorica: relacion entre pais y popularidad
+ggplot(data=karol_g) + geom_boxplot(aes(x=country, y=popularity))
+
+#probando :)
+taylor <- spotify |>
+  filter(artists=="Taylor Swift")
+#diez artistas que aparecen más
+
+
+
+
