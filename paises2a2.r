@@ -5,7 +5,7 @@ ggplot(d2) + geom_point(aes(x=country, y=popularity))
 #Podemos ver que en Republica Dominicana la popularidad varia mas que en otros paises
 
 #2)diagrama de caja
-ggplot(d2) + geom_boxplot(aes(x=country, y=popularity))
+ggplot(d2) + geom_boxplot(aes(x=country, y=danceability))
 
 
 
@@ -39,7 +39,7 @@ ggplot(uy_BR) + geom_boxplot(aes(x=country, y=danceability))
 #Veo variabilidad entre todos los paises segun si es explicito o no, y su danzabilidad
 
 
-ggplot(d3) + geom_boxplot(aes(x=country, y=danceability , fill=is_explicit), position = "dodge") + 
+ggplot(d2) + geom_boxplot(aes(x=country, y=danceability , fill=is_explicit), position = "dodge") + 
   labs(x="País", y="Danzabilidad", fill="Es explicito")+
   scale_fill_manual(values = c("lightyellow", "lightpink"))
 
@@ -85,9 +85,9 @@ ca$name[8344]
 
 install.packages("rcartocolor")
 library(rcartocolor)
-coloressunset <- rcartocolor::carto_pal(2, "Sunset")
+coloressunset <- rcartocolor::carto_pal(,"Safe")
 
-ggplot(d3) + geom_boxplot(aes(x=country, y=danceability , fill=is_explicit), position = "dodge") + 
+ggplot(d2) + geom_boxplot(aes(x=country, y=danceability , fill=is_explicit), position = "dodge") + 
   labs(x="País", y="Danzabilidad", fill="Es explicito") +
   scale_fill_manual(values = coloressunset) + theme_minimal()
 
